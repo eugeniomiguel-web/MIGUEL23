@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Attendance Tracker — Events</title>
+  <link rel="stylesheet" href="style2.css" />
+  <!-- QR library (needed by main.js for generating QR fallback) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Attendance Tracker</h1>
+
+    <nav class="row">
+      <a class="btn" href="miguel.html">Events</a>
+      <a class="btn" href="miguel3.html" target="_blank">Students</a>
+      <a class="btn" href="miguel4.html" target="_blank">Attendance</a>
+      <a class="btn" href="miguel2.html" target="_blank">Open Scanner →</a>
+    </nav>
+
+    <section id="events" class="panel">
+      <h2>Create Event</h2>
+      <form id="eventForm">
+        <label>Event name<br/><input id="eventName" required /></label>
+        <label>Event date & time<br/><input id="eventDatetime" type="datetime-local" required/></label>
+        <label>Description (optional)<br/><input id="eventDesc" /></label>
+        <div>
+          <button class="btn" type="submit">Create Event</button>
+        </div>
+      </form>
+
+      <h3>Events</h3>
+      <ul id="eventsList" class="list"></ul>
+    </section>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

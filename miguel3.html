@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Students — Attendance Tracker</title>
+  <link rel="stylesheet" href="style2.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Students</h1>
+
+    <nav class="row">
+      <a class="btn" href="miguel.html">Events</a>
+      <a class="btn" href="miguel3.html">Students</a>
+      <a class="btn" href="miguel4.html">Attendance</a>
+      <a class="btn" href="miguel2.html">Open Scanner →</a>
+    </nav>
+
+    <section id="students" class="panel">
+      <h2>Add Student</h2>
+
+      <form id="studentForm">
+        <label>Student ID<br/><input id="stuId" placeholder="e.g. S12345" required/></label>
+        <label>Name<br/><input id="stuName" required/></label>
+        <label>Course<br/><input id="stuCourse"/></label>
+        <label>Year<br/>
+          <select id="stuYear" required>
+            <option value="">-- Select Year --</option>
+            <option value="1">1st Year</option>
+            <option value="2">2nd Year</option>
+            <option value="3">3rd Year</option>
+            <option value="4">4th Year</option>
+            <option value="Other">Other / Not specified</option>
+          </select>
+        </label>
+        <label>Section<br/><input id="stuSection"/></label>
+        <div>
+          <button class="btn" type="submit">Add Student</button>
+        </div>
+      </form>
+
+      <h3>Bulk import (CSV)</h3>
+      <p class="small">CSV columns: id,name,course,year,section — year values: 1,2,3,4 or Other</p>
+      <textarea id="csvInput" rows="6" placeholder="id,name,course,year,section"></textarea>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button id="importCsv" class="btn">Import CSV</button>
+        <button id="exportStudents" class="btn">Export Students CSV</button>
+        <button id="exportVisible" class="btn">Export Visible (Filtered)</button>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center;margin-top:12px;">
+        <label style="margin:0;">
+          Show:
+          <select id="studentYearFilter" style="margin-left:6px;">
+            <option value="">All years</option>
+            <option value="1">1st Year</option>
+            <option value="2">2nd Year</option>
+            <option value="3">3rd Year</option>
+            <option value="4">4th Year</option>
+            <option value="Other">Other / Not specified</option>
+          </select>
+        </label>
+        <div style="margin-left:auto;">
+          <button id="expandAll" class="btn">Expand all</button>
+          <button id="collapseAll" class="btn">Collapse all</button>
+        </div>
+      </div>
+
+      <h3 style="margin-top:12px;">Students</h3>
+      <div id="studentsList" class="list"></div>
+    </section>
+  </div>
+
+  <!-- Edit Student Modal -->
+  <div id="editModal" class="qr-modal" style="display:none;">
+    <div class="panel" style="max-width:480px; width:92%; box-sizing:border-box;">
+      <h3>Edit Student</h3>
+      <input type="hidden" id="editStuId" />
+      <label>Name<br/>
+        <input id="editName" type="text" />
+      </label>
+      <label>Course<br/>
+        <input id="editCourse" type="text" />
+      </label>
+      <label>Year<br/>
+        <select id="editYear">
+          <option value="">-- Select Year --</option>
+          <option value="1">1st Year</option>
+          <option value="2">2nd Year</option>
+          <option value="3">3rd Year</option>
+          <option value="4">4th Year</option>
+          <option value="Other">Other / Not specified</option>
+        </select>
+      </label>
+      <label>Section<br/>
+        <input id="editSection" type="text" />
+      </label>
+
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px;">
+        <button id="editCancelBtn" class="btn" type="button">Cancel</button>
+        <button id="editSaveBtn" class="btn" type="button">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

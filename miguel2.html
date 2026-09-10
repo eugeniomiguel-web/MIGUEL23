@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Scan Attendance</title>
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📷 Scan Attendance</h1>
+
+    <div class="event-selector panel">
+      <label>
+        <strong>Event</strong><br/>
+        <select id="eventSelect">
+          <option value="">-- Select Event --</option>
+        </select>
+      </label>
+
+      <label>
+        <strong>Camera</strong><br/>
+        <select id="cameraSelect">
+          <option value="">Loading cameras…</option>
+        </select>
+      </label>
+
+      <div class="row">
+        <button id="startBtn" class="btn">Start Scanner</button>
+        <button id="stopBtn" class="btn danger" disabled>Stop Scanner</button>
+      </div>
+
+      <div id="errorMsg" style="color:#c43a3a;margin-top:8px;"></div>
+    </div>
+
+    <div id="reader" class="camera panel"></div>
+
+    <div id="result" class="result-box panel" style="display:none">
+      <h2>Student Information</h2>
+      <p><strong>Event:</strong> <span id="attendanceEvent">---</span></p>
+      <p><strong>Student ID:</strong> <span id="studentId">---</span></p>
+      <p><strong>Name:</strong> <span id="studentName">---</span></p>
+      <p><strong>Course:</strong> <span id="studentCourse">---</span></p>
+      <p><strong>Year:</strong> <span id="studentYear">---</span></p>
+      <p><strong>Section:</strong> <span id="studentSection">---</span></p>
+      <p><strong>Date:</strong> <span id="attendanceDate">---</span></p>
+      <p><strong>Time:</strong> <span id="attendanceTime">---</span></p>
+      <p><strong>Status:</strong> <span id="studentStatus">---</span></p>
+
+      <div class="row">
+        <button id="scanAgainBtn" class="btn">📷 Scan Again</button>
+        <button id="manualMarkBtn" class="btn">Mark manually</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Manual entry / test</h3>
+      <label>Student ID<br/><input id="manualId" placeholder="S12345"/></label>
+      <div class="row">
+        <button id="manualScan" class="btn">Mark Attendance</button>
+      </div>
+    </div>
+
+    <p><a href="miguel.html" class="back-button">← Back to Manager</a></p>
+  </div>
+
+  <script src="scan.js"></script>
+</body>
+</html>
